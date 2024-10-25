@@ -1,8 +1,8 @@
 {
   "name": "app",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Example of the Nest.js application following clean architecture principles",
+  "author": "Peter Kracik<peter@kracik.sk>",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
