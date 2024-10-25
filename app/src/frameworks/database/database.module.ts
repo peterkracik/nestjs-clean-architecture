@@ -27,5 +27,4 @@ export class DatabaseModule extends ConfigurableModuleClass {
       exports: [BooksRepository, AuthorsRepository],
     };
   }
-
 }

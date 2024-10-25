@@ -13,5 +13,4 @@ export class BookEntity implements Book {
 
   @ManyToOne(() => AuthorEntity, (author) => author.books, { eager: true })
   author: Author;
-
 }

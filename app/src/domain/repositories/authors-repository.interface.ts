@@ -6,4 +6,3 @@ export interface IAuthorsRepository {
   findById(id: number): Promise<Author>;
   add(payload: DeepPartial<Author>): Promise<Author>;
 }
-

@@ -6,4 +6,3 @@ export interface IBooksRepository {
   findById(id: number): Promise<Book>;
   add(payload: DeepPartial<Book>): Promise<Book>;
 }
-

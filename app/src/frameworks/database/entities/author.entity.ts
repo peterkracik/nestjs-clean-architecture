@@ -15,5 +15,4 @@ export class AuthorEntity {
 
   @OneToMany(() => BookEntity, (book) => book.author)
   books: Book[];
-
 }

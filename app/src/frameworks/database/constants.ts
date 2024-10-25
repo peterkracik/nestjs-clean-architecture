@@ -6,4 +6,3 @@ export type DatabaseModuleOptions = {
   password: string;
   database: string;
 };
-
