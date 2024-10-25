@@ -5,6 +5,7 @@ import {
   NotFoundException,
   Param,
   Post,
+  UseGuards,
 } from '@nestjs/common';
 import { CreateAuthorDto } from './dtos/create-author.dto';
 import { AuthorDto } from './dtos/author.dto';
@@ -16,6 +17,7 @@ import {
 import { CreateAuthorUseCase } from '@domain/use-cases/authors/create-author.usecase';
 import { GetAuthorByIdUseCase } from '@domain/use-cases/authors/get-author-by-id.usecase';
 import { GetAllAuthorsUseCase } from '@domain/use-cases/authors/get-all-authors.usecase';
+import { AuthGuard } from '../../guards/auth.guard';
 
 @Controller('authors')
 export class AuthorsController {
@@ -43,6 +45,7 @@ export class AuthorsController {
   }
 
   @Post()
+  @UseGuards(AuthGuard)
   @ApiCreatedResponse({ type: AuthorDto })
   create(@Body() createAuthorDto: CreateAuthorDto) {
     return this.createAuthorUseCase.execute({ ...createAuthorDto });
