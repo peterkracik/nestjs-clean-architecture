@@ -3,6 +3,9 @@ import { AuthorsRepository } from '@frameworks/database/repositories/authors.rep
 import { BooksRepository } from '@frameworks/database/repositories/books.repository';
 import { Global, Module } from '@nestjs/common';
 import { AUTHORS_REPOSITORY, BOOKS_REPOSITORY } from './constats';
+import { MockDatabaseModule } from '@frameworks/mock-database/mock-database.module';
+import { BooksRepository as MockBooksRepository } from '@frameworks/mock-database/repositories/books.repository';
+import { AuthorsRepository as MockAuthorsRepository } from '@frameworks/mock-database/repositories/authors.repository';
 
 @Global()
 @Module({
@@ -15,15 +18,16 @@ import { AUTHORS_REPOSITORY, BOOKS_REPOSITORY } from './constats';
       password: 'postgres',
       database: 'postgres',
     }),
+    MockDatabaseModule,
   ],
   providers: [
     {
       provide: BOOKS_REPOSITORY,
-      useClass: BooksRepository,
+      useExisting: process.env.MOCK ? MockBooksRepository : BooksRepository,
     },
     {
       provide: AUTHORS_REPOSITORY,
-      useClass: AuthorsRepository,
+      useExisting: process.env.MOCK ? MockAuthorsRepository : AuthorsRepository,
     },
   ],
   exports: [BOOKS_REPOSITORY, AUTHORS_REPOSITORY],
