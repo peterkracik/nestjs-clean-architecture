@@ -6,15 +6,24 @@ import { AUTHORS_REPOSITORY, BOOKS_REPOSITORY } from './constats';
 
 @Global()
 @Module({
-  imports: [DatabaseModule],
+  imports: [
+    DatabaseModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: 'postgres',
+      database: 'postgres',
+    }),
+  ],
   providers: [
     {
       provide: BOOKS_REPOSITORY,
-      useExisting: BooksRepository,
+      useClass: BooksRepository,
     },
     {
       provide: AUTHORS_REPOSITORY,
-      useExisting: AuthorsRepository,
+      useClass: AuthorsRepository,
     },
   ],
   exports: [BOOKS_REPOSITORY, AUTHORS_REPOSITORY],
