@@ -1,10 +1,21 @@
 // following https://docs.nestjs.com/security/authentication
 
-import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
+import {
+  Injectable,
+  CanActivate,
+  ExecutionContext,
+  Inject,
+} from '@nestjs/common';
 import { Observable } from 'rxjs';
+import { AUTH_SERVICE } from 'src/constats';
+import { IAuthService } from './auth-service.interface';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
+  constructor(
+    @Inject(AUTH_SERVICE)
+    private readonly authService: IAuthService,
+  ) {}
   canActivate(
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
@@ -14,7 +25,7 @@ export class AuthGuard implements CanActivate {
       return false;
     }
 
-    return true;
+    return this.authService.validate(token);
   }
 
   private extractTokenFromHeader(request: Request): string | undefined {
