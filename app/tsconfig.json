@@ -21,8 +21,8 @@
       "@domain/*": [
         "src/domain/*"
       ],
-      "@infrastructure/*": [
-        "src/infrastructure/*"
+      "@frameworks/*": [
+        "src/frameworks/*"
       ],
       "@gateways": [
         "src/gateways"
