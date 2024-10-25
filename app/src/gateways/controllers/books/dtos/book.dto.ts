@@ -1,4 +1,4 @@
-import { Author } from 'src/authors/author.entity';
+import { Author } from '@domain/interfaces/author';
 
 export class BookDto {
   readonly id: number;
