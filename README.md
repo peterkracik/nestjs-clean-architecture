@@ -1,6 +1,6 @@
 # Clean Architecture with NestJS
 
-article: https://medium.com/@peterkracik
+article: [https://medium.com/@peterkracik](https://medium.com/@peterkracik/clean-architecture-not-only-in-nest-js-867355a27062)
 
 This project demonstrates the implementation of Clean Architecture principles using the NestJS framework. It serves as a guide for structuring a NestJS application to ensure separation of concerns, maintainability, and scalability.
 
