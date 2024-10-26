@@ -5,7 +5,7 @@ import {
   AUTHORS_REPOSITORY,
   BOOKS_REPOSITORY,
   NOTIFICATIONS_SERVICE,
-} from 'src/constats';
+} from '@/constants';
 import { IBooksRepository } from '@domain/repositories/books-repository.interface';
 import { INotificationsService } from '@domain/services/notifications-service.interface';
 import { Book } from '@domain/entities/book';

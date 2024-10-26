@@ -7,7 +7,7 @@ import {
   Inject,
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
-import { AUTH_SERVICE } from 'src/constats';
+import { AUTH_SERVICE } from '@/constants';
 import { IAuthService } from './auth-service.interface';
 
 @Injectable()

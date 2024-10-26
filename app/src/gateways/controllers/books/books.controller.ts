@@ -5,8 +5,8 @@ import { CreateBookDto } from './dtos/create-book.dto';
 import { CreateBookUseCase } from '@domain/use-cases/books/create-book.usecase';
 import { GetBookByIdUseCase } from '@domain/use-cases/books/get-book-by-id.usecase';
 import { GetAllBooksUseCase } from '@domain/use-cases/books/get-all-books.usecase';
-import { NotFoundException } from 'src/gateways/exceptions/not-found.exception';
-import { CouldNotCreateException } from 'src/gateways/exceptions/could-not-create.exception';
+import { NotFoundException } from '@gateways/exceptions/not-found.exception';
+import { CouldNotCreateException } from '@gateways/exceptions/could-not-create.exception';
 
 @Controller('books')
 export class BooksController {

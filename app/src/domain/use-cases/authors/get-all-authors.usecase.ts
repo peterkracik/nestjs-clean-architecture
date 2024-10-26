@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { BaseUseCase } from '@domain/use-cases/base-use-case.interface';
 import { IAuthorsRepository } from '@domain/repositories/authors-repository.interface';
-import { AUTHORS_REPOSITORY } from 'src/constats';
+import { AUTHORS_REPOSITORY } from '@/constants';
 import { IAuthor } from '@domain/interfaces/author.interface';
 import { Author } from '@domain/entities/author';
 

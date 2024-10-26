@@ -1,6 +1,6 @@
 
 export class AuthorDto {
-  readonly id: string;
+  readonly id: number;
   readonly firstName: string;
   readonly lastName: string;
 }

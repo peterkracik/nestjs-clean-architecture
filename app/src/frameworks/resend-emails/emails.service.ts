@@ -21,7 +21,7 @@ export class EmailsService implements INotificationsService {
       html: body,
     });
 
-    if (response.error) {
+    if (response?.error) {
       console.error(response.error);
       return false;
     }

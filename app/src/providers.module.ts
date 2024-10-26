@@ -7,7 +7,7 @@ import {
   AUTHORS_REPOSITORY,
   BOOKS_REPOSITORY,
   NOTIFICATIONS_SERVICE,
-} from './constats';
+} from './constants';
 import { MockDatabaseModule } from '@frameworks/mock-database/mock-database.module';
 import { BooksRepository as MockBooksRepository } from '@frameworks/mock-database/repositories/books.repository';
 import { AuthorsRepository as MockAuthorsRepository } from '@frameworks/mock-database/repositories/authors.repository';

@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { BaseUseCase } from '@domain/use-cases/base-use-case.interface';
-import { BOOKS_REPOSITORY } from 'src/constats';
+import { BOOKS_REPOSITORY } from '@/constants';
 import { IBooksRepository } from '@domain/repositories/books-repository.interface';
 import { IBook } from '@domain/interfaces/book.interface';
 import { Book } from '@domain/entities/book';

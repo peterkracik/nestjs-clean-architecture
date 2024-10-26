@@ -18,14 +18,17 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
+      "@/*" : [
+        "src/*"
+      ],
       "@domain/*": [
         "src/domain/*"
       ],
       "@frameworks/*": [
         "src/frameworks/*"
       ],
-      "@gateways": [
-        "src/gateways"
+      "@gateways/*": [
+        "src/gateways/*"
       ]
     }
   }

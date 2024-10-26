@@ -9,9 +9,9 @@ import {
 import { CreateAuthorUseCase } from '@domain/use-cases/authors/create-author.usecase';
 import { GetAuthorByIdUseCase } from '@domain/use-cases/authors/get-author-by-id.usecase';
 import { GetAllAuthorsUseCase } from '@domain/use-cases/authors/get-all-authors.usecase';
-import { AuthGuard } from '../../guards/auth.guard';
-import { NotFoundException } from '../../exceptions/not-found.exception';
-import { CouldNotCreateException } from '../../exceptions/could-not-create.exception';
+import { AuthGuard } from '@gateways/guards/auth.guard';
+import { NotFoundException } from '@gateways/exceptions/not-found.exception';
+import { CouldNotCreateException } from '@gateways/exceptions/could-not-create.exception';
 
 @Controller('authors')
 export class AuthorsController {
