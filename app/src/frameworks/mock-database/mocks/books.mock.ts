@@ -1,6 +1,6 @@
-import { Book } from '@domain/interfaces/book';
+import { IBook } from '@domain/interfaces/book.interface';
 
-export const booksMock: Book[] = [
+export const booksMock: IBook[] = [
   {
     id: 1,
     title: 'The Hobbit',

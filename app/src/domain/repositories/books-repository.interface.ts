@@ -1,8 +1,8 @@
 import { DeepPartial } from 'typeorm';
-import { Book } from '@domain/interfaces/book';
+import { IBook } from '@domain/interfaces/book.interface';
 
 export interface IBooksRepository {
-  findAll(): Promise<Array<Book>>;
-  findById(id: number): Promise<Book>;
-  add(payload: DeepPartial<Book>): Promise<Book>;
+  findAll(): Promise<Array<IBook>>;
+  findById(id: number): Promise<IBook>;
+  add(payload: DeepPartial<IBook>): Promise<IBook>;
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { DataSource, DeepPartial, Repository } from 'typeorm';
 import { AuthorEntity } from '../entities/author.entity';
 import { IAuthorsRepository } from '@domain/repositories/authors-repository.interface';
-import { Author } from '@domain/interfaces/author';
+import { IAuthor } from '@domain/interfaces/author.interface';
 
 @Injectable()
 export class AuthorsRepository
@@ -13,14 +13,14 @@ export class AuthorsRepository
     super(AuthorEntity, dataSource.createEntityManager());
   }
 
-  findAll(): Promise<Author[]> {
+  findAll(): Promise<IAuthor[]> {
     return this.find();
   }
-  findById(id: number): Promise<Author> {
+  findById(id: number): Promise<IAuthor> {
     return this.findOneBy({ id });
   }
 
-  add(payload: DeepPartial<Author>): Promise<Author> {
-    return this.save(payload) as Promise<Author>;
+  add(payload: DeepPartial<IAuthor>): Promise<IAuthor> {
+    return this.save(payload) as Promise<IAuthor>;
   }
 }

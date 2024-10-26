@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { DataSource, DeepPartial, Repository } from 'typeorm';
 import { BookEntity } from '../entities/book.entity';
 import { IBooksRepository } from '@domain/repositories/books-repository.interface';
-import { Book } from '@domain/interfaces/book';
+import { IBook } from '@domain/interfaces/book.interface';
 
 @Injectable()
 export class BooksRepository
@@ -13,14 +13,14 @@ export class BooksRepository
     super(BookEntity, dataSource.createEntityManager());
   }
 
-  findAll(): Promise<Book[]> {
+  findAll(): Promise<IBook[]> {
     return this.find();
   }
-  findById(id: number): Promise<Book> {
+  findById(id: number): Promise<IBook> {
     return this.findOneBy({ id });
   }
 
-  add(payload: DeepPartial<Book>): Promise<Book> {
-    return this.save(payload) as Promise<Book>;
+  add(payload: DeepPartial<IBook>): Promise<IBook> {
+    return this.save(payload) as Promise<IBook>;
   }
 }

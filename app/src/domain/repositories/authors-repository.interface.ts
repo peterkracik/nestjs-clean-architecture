@@ -1,8 +1,8 @@
 import { DeepPartial } from 'typeorm';
-import { Author } from '@domain/interfaces/author';
+import { IAuthor } from '@domain/interfaces/author.interface';
 
 export interface IAuthorsRepository {
-  findAll(): Promise<Array<Author>>;
-  findById(id: number): Promise<Author>;
-  add(payload: DeepPartial<Author>): Promise<Author>;
+  findAll(): Promise<Array<IAuthor>>;
+  findById(id: number): Promise<IAuthor>;
+  add(payload: DeepPartial<IAuthor>): Promise<IAuthor>;
 }

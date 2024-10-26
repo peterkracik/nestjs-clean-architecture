@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { BookEntity } from './book.entity';
-import { Book } from '@domain/interfaces/book';
+import { IBook } from '@domain/interfaces/book.interface';
 
 @Entity('author')
 export class AuthorEntity {
@@ -14,5 +14,5 @@ export class AuthorEntity {
   lastName: string;
 
   @OneToMany(() => BookEntity, (book) => book.author)
-  books: Book[];
+  books: IBook[];
 }
