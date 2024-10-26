@@ -1,17 +1,12 @@
-import {
-  Body,
-  Controller,
-  Get,
-  NotFoundException,
-  Param,
-  Post,
-} from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { BookDto } from './dtos/book.dto';
 import { ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';
 import { CreateBookDto } from './dtos/create-book.dto';
 import { CreateBookUseCase } from '@domain/use-cases/books/create-book.usecase';
 import { GetBookByIdUseCase } from '@domain/use-cases/books/get-book-by-id.usecase';
 import { GetAllBooksUseCase } from '@domain/use-cases/books/get-all-books.usecase';
+import { NotFoundException } from 'src/gateways/exceptions/not-found.exception';
+import { CouldNotCreateException } from 'src/gateways/exceptions/could-not-create.exception';
 
 @Controller('books')
 export class BooksController {
@@ -30,16 +25,20 @@ export class BooksController {
   @Get(':id')
   @ApiOkResponse({ type: BookDto })
   async findOne(@Param('id') id: number) {
-    const book = await this.getBookByIdUseCase.execute(id);
-    if (book) {
-      return book;
+    try {
+      return await this.getBookByIdUseCase.execute(id);
+    } catch (error) {
+      throw new NotFoundException(error.message);
     }
-    return new NotFoundException();
   }
 
   @Post()
   @ApiCreatedResponse({ type: BookDto })
-  create(@Body() createBookDto: CreateBookDto) {
-    return this.createBookUseCase.execute(createBookDto);
+  async create(@Body() createBookDto: CreateBookDto) {
+    try {
+      return await this.createBookUseCase.execute(createBookDto);
+    } catch (error) {
+      throw new CouldNotCreateException(error.message);
+    }
   }
 }

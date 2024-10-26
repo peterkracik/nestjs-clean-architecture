@@ -13,6 +13,9 @@ export class GetBookByIdUseCase implements BaseUseCase {
   ) {}
   async execute(id: number): Promise<IBook> {
     const booksData = await this.booksRepository.findById(id);
+    if (!booksData) {
+      throw new Error(`Book with id ${id} not found`);
+    }
 
     // This is necessary only if we need some business logic to be applied to the data
     const book = new Book().fromDao(booksData);
