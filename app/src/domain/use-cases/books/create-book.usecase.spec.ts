@@ -3,7 +3,6 @@ import { IBooksRepository } from '@domain/repositories/books-repository.interfac
 import { IAuthorsRepository } from '@domain/repositories/authors-repository.interface';
 import { INotificationsService } from '@domain/services/notifications-service.interface';
 import { IBook } from '@domain/interfaces/book.interface';
-import { Author } from '@domain/entities/author';
 import { Book } from '@domain/entities/book';
 
 describe('CreateBookUseCase', () => {

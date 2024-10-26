@@ -32,7 +32,7 @@ export class AuthorsController {
   @ApiNotFoundResponse({ description: 'Author not found' })
   async findOne(@Param('id') id: number) {
     try {
-      return await this.getAuthorByIdUseCase.execute(id);
+      return await this.getAuthorByIdUseCase.execute(+id);
     } catch (error) {
       throw new NotFoundException(error.message);
     }

@@ -26,7 +26,7 @@ export class BooksController {
   @ApiOkResponse({ type: BookDto })
   async findOne(@Param('id') id: number) {
     try {
-      return await this.getBookByIdUseCase.execute(id);
+      return await this.getBookByIdUseCase.execute(+id);
     } catch (error) {
       throw new NotFoundException(error.message);
     }
